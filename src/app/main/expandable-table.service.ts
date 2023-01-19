@@ -34,6 +34,9 @@ export class ExpandableTableService {
 		}, {
 			title: "Valid coverage",
 			matColumnDef: 'validCoverage'
+		}, {
+			title: "Update",
+			matColumnDef: "update"
 		}];
 
 

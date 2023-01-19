@@ -26,12 +26,7 @@ export class MainComponent implements OnInit {
 	}
 
 	getDisplayedColumns() {
-		const columns = this.displayedColumns.map(column => column.matColumnDef);
-		columns.push("select");
-		return columns;
+		return this.displayedColumns.map(column => column.matColumnDef);
 	}
 
-	masterToggle() {
-
-	}
 }

@@ -7,11 +7,11 @@ export const Overview: OverviewData[] = [
 		"lineName": "Test",
 		"start": "LF - Falkenberg (Elster)",
 		"destination": "DR - Riesa",
-		"lastDriven": "--.--.----",
-		"validUntil": "--.--.----",
+		"lastDriven": "01.11.2022",
+		"validUntil": "01.11.2023",
 		"currentUserId": 508,
-		"coverage": "0 %",
-		"validCoverage": "0 %"
+		"coverage": "100 %",
+		"validCoverage": "45 %"
 	},
 	{
 		"lineId": 1096,
