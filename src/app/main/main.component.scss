@@ -1,0 +1,9 @@
+table {
+  width: 100%;
+}
+
+.tracked-ride-table {
+  max-height: 68%;
+  overflow-y:scroll;
+  display: block;
+}
