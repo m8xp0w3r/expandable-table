@@ -1,0 +1,37 @@
+table {
+  width: 100%;
+}
+
+.tracked-ride-table {
+  max-height: 30vh;
+  overflow-y:scroll;
+  display: block;
+}
+.mat-column-station {
+  width: 30%;
+}
+
+.mat-column-destination {
+  width: 30%;
+}
+
+.mat-column-lastDriven {
+  width: 10%;
+}
+
+.mat-column-validUntil {
+  width: 10%;
+}
+
+.mat-column-update {
+  width: 5%;
+}
+.validKnowledge {
+  background: greenyellow;
+}
+.endangeredKnowledge {
+  background: orange;
+}
+.expiredKnowledge {
+  background: red;
+}

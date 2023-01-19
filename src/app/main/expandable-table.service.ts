@@ -38,13 +38,31 @@ export class ExpandableTableService {
 			title: "Update",
 			matColumnDef: "update"
 		}];
+	public displayedDetailColumns: MatTableCellDef[] = [
+		{
+			title: "Start",
+			matColumnDef: 'station'
+		}, {
+			title: "Destination",
+			matColumnDef: 'destination'
+		}, {
+			title: "Last driven",
+			matColumnDef: 'lastDriven'
+		}, {
+			title: "Valid until",
+			matColumnDef: 'validUntil'
+		}, {
+			title: "Update",
+			matColumnDef: "update"
+		}
+	]
 
 
 	constructor() {
 	}
 
 	public getDetailOverviewData(lineId: number): Promise<DetailData[]> {
-		console.log("Getting detail data for line: ", lineId);
+		console.log("line id", lineId);
 		return new Promise(resolve => resolve(DetailOverviewData));
 	}
 }

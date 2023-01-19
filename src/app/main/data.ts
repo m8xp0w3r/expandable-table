@@ -283,9 +283,9 @@ export const DetailOverviewData: DetailData[] = [
 		"segmentId": 40673,
 		"station": "Hannover-Wülfel",
 		"destination": "Hannover Messe/Laatzen",
-		"lastDriven": "",
-		"validUntil": "",
-		"knowledgeState": "none"
+		"lastDriven": "20.11.2022",
+		"validUntil": "20.11.2023",
+		"knowledgeState": "valid"
 	},
 	{
 		"segmentId": 40683,
@@ -293,7 +293,7 @@ export const DetailOverviewData: DetailData[] = [
 		"destination": "Escherde",
 		"lastDriven": "",
 		"validUntil": "",
-		"knowledgeState": "none"
+		"knowledgeState": "endangered"
 	},
 	{
 		"segmentId": 40684,
@@ -301,7 +301,7 @@ export const DetailOverviewData: DetailData[] = [
 		"destination": "Sorsum",
 		"lastDriven": "",
 		"validUntil": "",
-		"knowledgeState": "none"
+		"knowledgeState": "expired"
 	},
 	{
 		"segmentId": 40685,

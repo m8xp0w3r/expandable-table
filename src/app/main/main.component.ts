@@ -4,20 +4,29 @@ import { OverviewData } from "../models/overview-data";
 import { ExpandableTableService } from "./expandable-table.service";
 import { MatTableCellDef } from "../models/mat-table-cell-def";
 import { SelectionModel } from "@angular/cdk/collections";
+import {animate, state, style, transition, trigger} from '@angular/animations';
+
 
 @Component({
 	selector: 'app-main',
 	templateUrl: './main.component.html',
-	styleUrls: ['./main.component.scss']
+	styleUrls: ['./main.component.scss'],
+	animations: [
+		trigger('detailExpand', [
+			state('collapsed', style({height: '0px', minHeight: '0'})),
+			state('expanded', style({height: '*'})),
+			transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+		]),
+	]
 })
 export class MainComponent implements OnInit {
 
 	public overviewData$: Observable<OverviewData[]> | undefined;
 	public displayedColumns: MatTableCellDef[];
+	public expandedElement: OverviewData | undefined;
 	selection = new SelectionModel<OverviewData>(true, []);
 
 	constructor(private expandableTableService: ExpandableTableService) {
-
 		this.displayedColumns = expandableTableService.displayedColumns;
 	}
 
@@ -26,7 +35,11 @@ export class MainComponent implements OnInit {
 	}
 
 	getDisplayedColumns() {
-		return this.displayedColumns.map(column => column.matColumnDef);
+		return ["expand", ...this.displayedColumns.map(column => column.matColumnDef)];
+	}
+
+	onExpand(row: OverviewData) {
+		this.expandedElement = this.expandedElement === row ? undefined : row
 	}
 
 }
