@@ -23,7 +23,7 @@ export class MainComponent implements OnInit {
 
 	public overviewData$: Observable<OverviewData[]> | undefined;
 	public displayedColumns: MatTableCellDef[];
-	public expandedElements: OverviewData[] = [];
+	public expandedElements: boolean[] = [];
 	selection = new SelectionModel<OverviewData>(true, []);
 
 	constructor(private expandableTableService: ExpandableTableService) {
@@ -39,7 +39,11 @@ export class MainComponent implements OnInit {
 	}
 
 	onExpand(row: OverviewData) {
-		this.expandedElements[row.lineId] =  row;
+		this.expandedElements[row.lineId] =  !this.expandedElements[row.lineId];
+	}
+
+	expandElement(element: OverviewData) {
+		this.expandedElements[element.lineId] = !this.expandedElements[element.lineId];
 	}
 
 }

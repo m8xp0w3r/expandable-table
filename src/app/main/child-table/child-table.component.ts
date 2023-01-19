@@ -20,7 +20,8 @@ export class ChildTableComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		this.detailData$ = this.expandableTableService.getDetailOverviewData(1);
+		console.log("on inti");
+		this.detailData$ = this.expandableTableService.getDetailOverviewData();
 	}
 
 	getDisplayedColumns() {

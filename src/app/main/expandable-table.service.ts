@@ -61,8 +61,7 @@ export class ExpandableTableService {
 	constructor() {
 	}
 
-	public getDetailOverviewData(lineId: number): Promise<DetailData[]> {
-		console.log("line id", lineId);
+	public getDetailOverviewData(): Promise<DetailData[]> {
 		return new Promise(resolve => resolve(DetailOverviewData));
 	}
 }
