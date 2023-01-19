@@ -18,9 +18,9 @@
         <ng-container matColumnDef="expand">
             <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
             <td mat-cell *matCellDef="let element">
-                <button mat-icon-button aria-label="expand row" (click)="(expandedElement = expandedElement === element ? undefined : element); $event.stopPropagation()">
-                    <mat-icon *ngIf="expandedElement !== element">keyboard_arrow_down</mat-icon>
-                    <mat-icon *ngIf="expandedElement === element">keyboard_arrow_up</mat-icon>
+                <button mat-icon-button aria-label="expand row" (click)="(expandedElements[element.lineId] = expandedElements[element.lineId]?.lineId === element.lineId ? undefined : element); $event.stopPropagation()">
+                    <mat-icon *ngIf="expandedElements[element.lineId]?.lineId !== element.lineId">keyboard_arrow_down</mat-icon>
+                    <mat-icon *ngIf="expandedElements[element.lineId]?.lineId === element.lineId">keyboard_arrow_up</mat-icon>
                 </button>
             </td>
         </ng-container>
@@ -28,7 +28,7 @@
         <ng-container matColumnDef="expandedDetail">
             <td mat-cell *matCellDef="let element" [attr.colspan]="getDisplayedColumns().length">
                 <div class="example-element-detail"
-                     [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+                     [@detailExpand]="element.lineId == expandedElements[element.lineId]?.lineId ? 'expanded' : 'collapsed'">
                     <app-child-table class="child-table"></app-child-table>
                 </div>
             </td>
@@ -37,7 +37,7 @@
         <tr mat-header-row *matHeaderRowDef="getDisplayedColumns(); sticky: true"></tr>
         <tr mat-row *matRowDef="let row; columns: getDisplayedColumns()"
             class="example-element-row"
-            [class.example-expanded-row]="expandedElement === row"
+            [class.example-expanded-row]="expandedElements[row.lineId]?.lineId === row.lineId"
             (click)="onExpand(row)"></tr>
         <tr mat-row *matRowDef="let element1; columns: ['expandedDetail']" class="example-detail-row"></tr>
         <tr class="mat-row" *matNoDataRow>
