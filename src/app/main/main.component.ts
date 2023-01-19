@@ -3,6 +3,7 @@ import { Observable } from "rxjs";
 import { OverviewData } from "../models/overview-data";
 import { ExpandableTableService } from "./expandable-table.service";
 import { MatTableCellDef } from "../models/mat-table-cell-def";
+import { SelectionModel } from "@angular/cdk/collections";
 
 @Component({
 	selector: 'app-main',
@@ -13,6 +14,7 @@ export class MainComponent implements OnInit {
 
 	public overviewData$: Observable<OverviewData[]> | undefined;
 	public displayedColumns: MatTableCellDef[];
+	selection = new SelectionModel<OverviewData>(true, []);
 
 	constructor(private expandableTableService: ExpandableTableService) {
 
@@ -24,6 +26,12 @@ export class MainComponent implements OnInit {
 	}
 
 	getDisplayedColumns() {
-		return this.displayedColumns.map(column => column.matColumnDef);
+		const columns = this.displayedColumns.map(column => column.matColumnDef);
+		columns.push("select");
+		return columns;
+	}
+
+	masterToggle() {
+
 	}
 }
