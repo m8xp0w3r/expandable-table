@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { DetailOverviewData, Overview } from "./data";
+import { DetailOverviewData } from "./data";
 import { BehaviorSubject } from "rxjs";
 import { OverviewData } from "../models/overview-data";
 import { DetailData } from "../models/detail-data";
@@ -10,7 +10,7 @@ import { MatTableCellDef } from "../models/mat-table-cell-def";
 })
 export class ExpandableTableService {
 
-	private overviewSubject: BehaviorSubject<OverviewData[]> = new BehaviorSubject<OverviewData[]>(Overview);
+	private overviewSubject: BehaviorSubject<OverviewData[]> = new BehaviorSubject<OverviewData[]>([]);
 	public overviewData$ = this.overviewSubject.asObservable();
 	public displayedColumns: MatTableCellDef[] = [
 		{
