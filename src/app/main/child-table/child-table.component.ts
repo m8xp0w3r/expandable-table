@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { OverviewData } from "../../models/overview-data";
 import { ExpandableTableService } from "../expandable-table.service";
 import { DetailData } from "../../models/detail-data";
@@ -11,6 +11,7 @@ import { SelectionModel } from "@angular/cdk/collections";
 	styleUrls: ['./child-table.component.scss']
 })
 export class ChildTableComponent implements OnInit {
+	@Input() lineId: number|undefined;
 	public detailData$: Promise<DetailData[]> | undefined;
 	public displayedColumns: MatTableCellDef[];
 	selection = new SelectionModel<OverviewData>(true, []);
@@ -20,7 +21,7 @@ export class ChildTableComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		console.log("on inti");
+		console.log("on init", this.lineId);
 		this.detailData$ = this.expandableTableService.getDetailOverviewData();
 	}
 
