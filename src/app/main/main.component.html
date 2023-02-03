@@ -29,7 +29,7 @@
             <td mat-cell *matCellDef="let element" [attr.colspan]="getDisplayedColumns().length">
                 <div class="example-element-detail"
                      [@detailExpand]="expandedElements[element.lineId] ? 'expanded' : 'collapsed'">
-                    <app-child-table class="child-table"></app-child-table>
+                    <app-child-table class="child-table" [lineId]="element.lineId"></app-child-table>
                 </div>
             </td>
         </ng-container>
